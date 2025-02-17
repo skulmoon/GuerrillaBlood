@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=4 uid="uid://dx5lcxwjmt7jq"]
+
+[ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entites/Player/Player.tscn" id="1_d1fot"]
+[ext_resource type="Texture2D" uid="uid://l1nnbyg75dyp" path="res://Data/Textures/block.png" id="2_psn2c"]
+[ext_resource type="Texture2D" uid="uid://btvjxp3euj22a" path="res://Data/Textures/Menu/Buttons/SmallButton/NormalSmallButton.png" id="3_imln6"]
+[ext_resource type="Texture2D" uid="uid://ce200m4doo66u" path="res://Data/Textures/Menu/Buttons/SmallButton/PressedSmallButton.png" id="4_p43gs"]
+[ext_resource type="Texture2D" uid="uid://ds3eil36qy5c7" path="res://Data/Textures/Menu/Buttons/SmallButton/HoverSmallButton.png" id="5_vvjej"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/CloseButton.cs" id="6_lyrp4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orx80"]
+texture = ExtResource("2_psn2c")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_vyypd"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_orx80")
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d1fot")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD7////AAAAAAAAAAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD7/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD///v/AAAAAAAAAAD9//v/AAAAAAAAAAD8//v/AAAAAAAAAAD7//v/AAAAAAAAAAD7//z/AAAAAAAAAAD+//n/AAAAAAAAAAD8//r/AAAAAAAAAAD+//j/AAAAAAAAAAD9//j/AAAAAAAAAAD8//j/AAAAAAAAAAD7//j/AAAAAAAAAAD6//j/AAAAAAAAAAD5//j/AAAAAAAAAAD5//n/AAAAAAAAAAD5//r/AAAAAAAAAAD5//v/AAAAAAAAAAD4//v/AAAAAAAAAAD3//v/AAAAAAAAAAD3//z/AAAAAAAAAAD3//3/AAAAAAAAAAD5//z/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_vyypd")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="CloseButton" type="TextureButton" parent="Interface"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_imln6")
+texture_pressed = ExtResource("4_p43gs")
+texture_hover = ExtResource("5_vvjej")
+stretch_mode = 5
+script = ExtResource("6_lyrp4")
+
+[connection signal="pressed" from="Interface/CloseButton" to="Interface/CloseButton" method="OnPressed"]

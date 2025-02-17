@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxj1rcbm4s2bx"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_gj74j"]
+[ext_resource type="Texture2D" uid="uid://bas7ud6w0sfan" path="res://Data/Textures/Menu/Buttons/NormalButton/NormalButton.png" id="2_03a14"]
+[ext_resource type="Texture2D" uid="uid://xy22rxoim3hp" path="res://Data/Textures/Menu/Buttons/NormalButton/PressedButton.png" id="3_e2uvg"]
+[ext_resource type="Texture2D" uid="uid://beatslw6jay70" path="res://Data/Textures/Menu/Buttons/NormalButton/HoverButton.png" id="4_2pdi5"]
+
+[node name="GameLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gj74j")
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.85
+anchor_right = 0.98
+anchor_bottom = 0.965
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Exit" type="TextureButton" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+texture_normal = ExtResource("2_03a14")
+texture_pressed = ExtResource("3_e2uvg")
+texture_hover = ExtResource("4_2pdi5")
+stretch_mode = 5
+
+[node name="Load" type="TextureButton" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_right = 0.65
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_03a14")
+texture_pressed = ExtResource("3_e2uvg")
+texture_hover = ExtResource("4_2pdi5")
+stretch_mode = 5
+
+[node name="Delete" type="TextureButton" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_03a14")
+texture_pressed = ExtResource("3_e2uvg")
+texture_hover = ExtResource("4_2pdi5")
+stretch_mode = 5
+
+[node name="Saves" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.8
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Saves"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

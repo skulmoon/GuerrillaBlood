@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhgr62sao2gjo"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Entites/Player/Player.cs" id="1_50o4n"]
+[ext_resource type="Script" path="res://Data/Scripts/Entites/Player/PlayerInteractionArea.cs" id="2_5mofv"]
+[ext_resource type="Texture2D" uid="uid://bk2vnk8xar0b1" path="res://Data/Textures/Entites/Снимок экрана 2025-01-17 150334.png" id="3_3chri"]
+[ext_resource type="Script" path="res://Data/Scripts/Entites/Player/PlayerCamera.cs" id="3_ybh1g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ir66"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crk6a"]
+radius = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_50o4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qfa5h")
+one_way_collision_margin = 0.0
+
+[node name="PlayerInteractionArea" type="Area2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_5mofv")
+
+[node name="CollisionArea" type="CollisionShape2D" parent="PlayerInteractionArea"]
+shape = SubResource("RectangleShape2D_4ir66")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_crk6a")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_ybh1g")
+
+[node name="СнимокЭкрана2025-01-17150334" type="Sprite2D" parent="."]
+scale = Vector2(0.120482, 0.120482)
+texture = ExtResource("3_3chri")
+
+[connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
+[connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

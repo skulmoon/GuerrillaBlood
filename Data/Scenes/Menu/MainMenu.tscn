@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=3 uid="uid://cy5eyixjhmvb2"]
+
+[ext_resource type="Texture2D" uid="uid://bas7ud6w0sfan" path="res://Data/Textures/Menu/Buttons/NormalButton/NormalButton.png" id="1_obp4q"]
+[ext_resource type="Texture2D" uid="uid://xy22rxoim3hp" path="res://Data/Textures/Menu/Buttons/NormalButton/PressedButton.png" id="2_7dfvm"]
+[ext_resource type="Texture2D" uid="uid://beatslw6jay70" path="res://Data/Textures/Menu/Buttons/NormalButton/HoverButton.png" id="3_knwmt"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonNew.cs" id="4_0ql7a"]
+[ext_resource type="FontFile" uid="uid://b113o627auej7" path="res://ComicoroRu_0.ttf" id="5_cb6cn"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonLoad.cs" id="6_uel01"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonExit.cs" id="7_a4jov"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmb3q"]
+font = ExtResource("5_cb6cn")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_34n4g"]
+font = ExtResource("5_cb6cn")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_ur7i7"]
+font = ExtResource("5_cb6cn")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_cascr"]
+font = ExtResource("5_cb6cn")
+font_size = 48
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonNew" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.3
+texture_normal = ExtResource("1_obp4q")
+texture_pressed = ExtResource("2_7dfvm")
+texture_hover = ExtResource("3_knwmt")
+stretch_mode = 5
+script = ExtResource("4_0ql7a")
+
+[node name="Label" type="Label" parent="ButtonNew"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Новая игра"
+label_settings = SubResource("LabelSettings_qmb3q")
+
+[node name="ButtonLoad" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.35
+anchor_right = 0.7
+anchor_bottom = 0.45
+texture_normal = ExtResource("1_obp4q")
+texture_pressed = ExtResource("2_7dfvm")
+texture_hover = ExtResource("3_knwmt")
+stretch_mode = 5
+script = ExtResource("6_uel01")
+
+[node name="Label" type="Label" parent="ButtonLoad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Загрузить"
+label_settings = SubResource("LabelSettings_34n4g")
+
+[node name="ButtonOptions" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.5
+anchor_right = 0.7
+anchor_bottom = 0.6
+texture_normal = ExtResource("1_obp4q")
+texture_pressed = ExtResource("2_7dfvm")
+texture_hover = ExtResource("3_knwmt")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ButtonOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Настройки"
+label_settings = SubResource("LabelSettings_ur7i7")
+
+[node name="ButtonExit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.65
+anchor_right = 0.7
+anchor_bottom = 0.75
+texture_normal = ExtResource("1_obp4q")
+texture_pressed = ExtResource("2_7dfvm")
+texture_hover = ExtResource("3_knwmt")
+stretch_mode = 5
+script = ExtResource("7_a4jov")
+
+[node name="Label" type="Label" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выйти
+"
+label_settings = SubResource("LabelSettings_cascr")
+
+[connection signal="pressed" from="ButtonNew" to="ButtonNew" method="OnPressed"]
+[connection signal="pressed" from="ButtonLoad" to="ButtonLoad" method="OnPressed"]
+[connection signal="pressed" from="ButtonExit" to="ButtonExit" method="OnPressed"]

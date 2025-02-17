@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2o2iukr5pmrr"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/GameCreator.cs" id="1_e321n"]
+[ext_resource type="Texture2D" uid="uid://bas7ud6w0sfan" path="res://Data/Textures/Menu/Buttons/NormalButton/NormalButton.png" id="2_8xc8t"]
+[ext_resource type="Texture2D" uid="uid://xy22rxoim3hp" path="res://Data/Textures/Menu/Buttons/NormalButton/PressedButton.png" id="3_shvpt"]
+[ext_resource type="Texture2D" uid="uid://beatslw6jay70" path="res://Data/Textures/Menu/Buttons/NormalButton/HoverButton.png" id="4_l7wqi"]
+
+[node name="GameCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e321n")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.5
+anchor_right = 0.8
+anchor_bottom = 0.5
+offset_top = -40.0
+
+[node name="ButtonNew" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.55
+anchor_right = 0.45
+anchor_bottom = 0.65
+texture_normal = ExtResource("2_8xc8t")
+texture_pressed = ExtResource("3_shvpt")
+texture_hover = ExtResource("4_l7wqi")
+stretch_mode = 5
+
+[node name="ButtonExit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.55
+anchor_right = 0.75
+anchor_bottom = 0.65
+texture_normal = ExtResource("2_8xc8t")
+texture_pressed = ExtResource("3_shvpt")
+texture_hover = ExtResource("4_l7wqi")
+stretch_mode = 5
