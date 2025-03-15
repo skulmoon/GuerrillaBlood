@@ -13,7 +13,7 @@ public class ItemFabric
         {
             ItemType.Item => (Item)ResourceLoader.Load($"res://Data/Resources/Items/{type}s/{id}.tres").Duplicate(true),
             ItemType.Armor => (Armor)ResourceLoader.Load($"res://Data/Resources/Items/{type}s/{id}.tres").Duplicate(true),
-            ItemType.Weapon => (Weapon)ResourceLoader.Load($"res://Data/Resources/Items/{type}s/{id}.tres").Duplicate(true),
+            ItemType.ActiveItem => (ActiveItem)ResourceLoader.Load($"res://Data/Resources/Items/{type}s/{id}.tres").Duplicate(true),
             _ => throw new NotImplementedException(),
         };
         if (count > item.MaxCount)

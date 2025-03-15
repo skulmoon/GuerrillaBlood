@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyeod1sd641mo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7dg4y"]
+
+[node name="ProgressBar" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(428.75, 165.375)
+scale = Vector2(372.5, 269.25)
+texture = SubResource("CanvasTexture_7dg4y")

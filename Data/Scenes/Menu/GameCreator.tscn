@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2o2iukr5pmrr"]
+[gd_scene load_steps=8 format=3 uid="uid://c2o2iukr5pmrr"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Menu/GameCreator.cs" id="1_e321n"]
+[ext_resource type="Texture2D" uid="uid://chx731n0kqr4l" path="res://Data/Textures/DALL·E-2025-03-04-08.03.png" id="2_1kvbg"]
 [ext_resource type="Texture2D" uid="uid://bas7ud6w0sfan" path="res://Data/Textures/Menu/Buttons/NormalButton/NormalButton.png" id="2_8xc8t"]
 [ext_resource type="Texture2D" uid="uid://xy22rxoim3hp" path="res://Data/Textures/Menu/Buttons/NormalButton/PressedButton.png" id="3_shvpt"]
 [ext_resource type="Texture2D" uid="uid://beatslw6jay70" path="res://Data/Textures/Menu/Buttons/NormalButton/HoverButton.png" id="4_l7wqi"]
 
-[node name="GameCreator" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_fu588"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_6p6ij"]
+font_size = 48
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+
+[node name="GameCreator" type="Control" node_paths=PackedStringArray("Label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +22,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e321n")
+Label = NodePath("Label")
+
+[node name="Dall·e-2025-03-04-08_03" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17383, 1.17383)
+texture = ExtResource("2_1kvbg")
+stretch_mode = 6
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
@@ -22,6 +45,7 @@ anchor_top = 0.5
 anchor_right = 0.8
 anchor_bottom = 0.5
 offset_top = -40.0
+theme_override_font_sizes/font_size = 32
 
 [node name="ButtonNew" type="TextureButton" parent="."]
 layout_mode = 1
@@ -35,6 +59,24 @@ texture_pressed = ExtResource("3_shvpt")
 texture_hover = ExtResource("4_l7wqi")
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="ButtonNew"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Создать"
+label_settings = SubResource("LabelSettings_fu588")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ButtonExit" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -46,3 +88,32 @@ texture_normal = ExtResource("2_8xc8t")
 texture_pressed = ExtResource("3_shvpt")
 texture_hover = ExtResource("4_l7wqi")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выйти"
+label_settings = SubResource("LabelSettings_fu588")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.7
+anchor_right = 0.8
+anchor_bottom = 0.75
+label_settings = SubResource("LabelSettings_6p6ij")
+horizontal_alignment = 1
+vertical_alignment = 1

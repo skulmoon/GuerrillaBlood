@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxj1rcbm4s2bx"]
+[gd_scene load_steps=7 format=3 uid="uid://dxj1rcbm4s2bx"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_gj74j"]
 [ext_resource type="Texture2D" uid="uid://bas7ud6w0sfan" path="res://Data/Textures/Menu/Buttons/NormalButton/NormalButton.png" id="2_03a14"]
+[ext_resource type="Texture2D" uid="uid://chx731n0kqr4l" path="res://Data/Textures/DALL·E-2025-03-04-08.03.png" id="2_vgbl3"]
 [ext_resource type="Texture2D" uid="uid://xy22rxoim3hp" path="res://Data/Textures/Menu/Buttons/NormalButton/PressedButton.png" id="3_e2uvg"]
 [ext_resource type="Texture2D" uid="uid://beatslw6jay70" path="res://Data/Textures/Menu/Buttons/NormalButton/HoverButton.png" id="4_2pdi5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwn8m"]
+font_size = 48
 
 [node name="GameLoader" type="Control"]
 layout_mode = 3
@@ -13,6 +17,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gj74j")
+
+[node name="Dall·e-2025-03-04-08_03" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17383, 1.17383)
+texture = ExtResource("2_vgbl3")
+stretch_mode = 6
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 1
@@ -34,6 +51,24 @@ texture_pressed = ExtResource("3_e2uvg")
 texture_hover = ExtResource("4_2pdi5")
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="Options/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выйти"
+label_settings = SubResource("LabelSettings_wwn8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Load" type="TextureButton" parent="Options"]
 layout_mode = 1
 anchors_preset = -1
@@ -46,6 +81,24 @@ texture_normal = ExtResource("2_03a14")
 texture_pressed = ExtResource("3_e2uvg")
 texture_hover = ExtResource("4_2pdi5")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Options/Load"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Загрузить"
+label_settings = SubResource("LabelSettings_wwn8m")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Delete" type="TextureButton" parent="Options"]
 layout_mode = 1
@@ -60,6 +113,24 @@ texture_normal = ExtResource("2_03a14")
 texture_pressed = ExtResource("3_e2uvg")
 texture_hover = ExtResource("4_2pdi5")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Options/Delete"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -22.5
+offset_right = 87.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Удалить"
+label_settings = SubResource("LabelSettings_wwn8m")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Saves" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)

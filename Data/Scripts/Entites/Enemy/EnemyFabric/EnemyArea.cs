@@ -3,10 +3,11 @@ using System;
 
 public partial class EnemyArea : Area2D
 {
-    [Export] public int Difficulty { get; set; }
+    [Export] public Vector2[] EnemyPositions { get; set; }
 
-    public void PlaceEnemy(Enemy enemy)
+    public void PlaceEnemy()
     {
+        Enemy enemy = Global.SceneObjects.EnemyFabric.Create(EnemyPositions);
         AddChild(enemy);
         Vector2 collisionSize = ((RectangleShape2D)GetNode<CollisionShape2D>("CollisionShape2D").Shape).Size;
         enemy.Position = new Vector2(

@@ -6,15 +6,17 @@ public partial class CutSceneManager : Node
 {
     private NPCPAMS _npcPams;
     private NPCDialogue _dialogue;
-    private AudioStreamPlayer _player = new AudioStreamPlayer();
+    private AudioStreamPlayer _player;
     private DialogPanel _panel;
     private int _currentCutScene = 0;
+    private string _currentMusic;
 
     public CutSceneManager() =>
         Global.SceneObjects.OnDialoguePanelChanged += TakePanel;
 
     private void TakePanel(Node node)
     {
+        _player = new AudioStreamPlayer();
         _panel = (DialogPanel)node;
         _panel.AddChild(_player);
     }
@@ -53,19 +55,23 @@ public partial class CutSceneManager : Node
 
     public void StartCutScene(NPCDialogue npcDialogue)
     {
-        Global.Settings.CutScene = true;
         _panel.OutputSpeech(npcDialogue);
         _panel.NextDialogue(_currentCutScene);
         NextPAMS(_currentCutScene);
         _dialogue = npcDialogue;
+        Global.Settings.CutScene = true;
     }
 
     public void NextPAMS(int currentCutScene)
     {
         if (_npcPams?.PAMSs[currentCutScene] != null)
         {
-            if (_npcPams.PAMSs[currentCutScene].Music != null)
+            if (_npcPams.PAMSs[currentCutScene].Music != null && _npcPams.PAMSs[currentCutScene].Music != _currentMusic)
+            {
                 Global.Sound.PlayMusic(_npcPams.PAMSs[currentCutScene].Music);
+                _currentMusic = _npcPams.PAMSs[currentCutScene].Music;
+                GD.Print(123);
+            }
             if (_npcPams.PAMSs[currentCutScene].Sound != null)
                 Global.Sound.PlaySound(_player, _npcPams.PAMSs[currentCutScene].Sound);
             if (_npcPams.PAMSs[currentCutScene].PAData != null)

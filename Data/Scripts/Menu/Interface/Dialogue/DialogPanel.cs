@@ -49,8 +49,11 @@ public partial class DialogPanel : NinePatchRect
             Global.CutSceneManager._Input(@event);
     }
 
-    public void NextDialogue(int currentCutScene) =>
+    public void NextDialogue(int currentCutScene)
+    {
         _dialogText.PrintText(_dialogue.Speech[currentCutScene].Text, _dialogue.Speech[currentCutScene].Name);
+        Global.SceneObjects.DialogueTexture.Texture = GD.Load<Texture2D>($"{_dialogue.Speech[currentCutScene].Image}");
+    }
 
     public void EndDialogue()
     {
@@ -67,14 +70,19 @@ public partial class DialogPanel : NinePatchRect
         }
         else
         {
+            Global.SceneObjects.Hp.Visible = true;
+            Global.SceneObjects.DialogueTexture.Visible = false;
             _dialogText.ClearText();
             Global.Settings.CutScene = false;
             PanelHide();
         }
     }
 
-    public void PanelShow() =>
+    public void PanelShow()
+    {
         Visible = true;
+        Global.SceneObjects.DialogueTexture.Visible = true;
+    }
 
     public void PanelHide() =>
         Visible = false;

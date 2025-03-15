@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CutSceneData">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEAAIAAAAAAABAAAAAAAAAAAAAAAAAAABABAEA=</HashCode>
+      <FileName>Data\Scripts\Global\CutScene\CutSceneData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Global" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CutSceneManager">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAIAAAAAAAAAAABAACAAAAAAQgACAAABAAAAABAA=</HashCode>
+      <FileName>Data\Scripts\Global\CutScene\CutSceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dialogue">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAEAAIAAAAAAgAAAAAAAAAAAAQAAAEAIAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\CutScene\Dialogue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CutSceneData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ActiveItem">
+    <Position X="23.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAEAAAgAAAAAAAAAAAAAAAAAYAAAAAAABA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\ActiveItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAggAAAAAAAAAQAAAAAAACAAAAAAAAAABA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ItemFabric">
+    <Position X="13" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\ItemFabric.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Global" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ItemTypeExtension">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\ItemTypeExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerInventory">
+    <Position X="18.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACCIAAAAAAAAAAAAAAAAAEAIAAAAAAJA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\PlayerInventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameSettings">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAgAAAAAQAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\GameSettings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IDAndText">
+    <Position X="15.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAQAAAAAABAAAAAACAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\IDAndText.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NPCDialogue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NPCDialogue">
+    <Position X="17" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAICAAAAAAAAAAAAACBAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\NPCDialogue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPCPAMS">
+    <Position X="13.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAiAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\NPCPAMS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Options">
+    <Position X="18" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\Options.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NPCDialogue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PAData">
+    <Position X="13.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQEABAAAAAgAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\PAData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PAMS" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PAMS">
+    <Position X="13.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\PAMS.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NPCPAMS" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerChoice">
+    <Position X="20.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAACAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\PlayerChoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerSettings">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAACAAgAAAAAAAAAAAAAAAAEAAAAAAAABA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\PlayerSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Save" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSONClasses\Save.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Directory">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAAAAAAAAAAAAAACCAAAAAAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\Directory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="JSON" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="JSON">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEBBIAQAQAAAAAAAAAAIAFAAQAAAAAAEEAAAAAAE=</HashCode>
+      <FileName>Data\Scripts\Global\JSONManager\JSON.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Global">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAACAAAAAAAAQhAAEAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneObjects">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAAQAGACBACAAgQECAAEAAESAgAQAAkAAQAA4gE=</HashCode>
+      <FileName>Data\Scripts\Global\SceneObjects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Settings">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAgAABAACAAIgCAAAAAAAAAIAAgA=</HashCode>
+      <FileName>Data\Scripts\Global\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAABAAAAkAAAAAgAAAAEAAAAAAAAE=</HashCode>
+      <FileName>Data\Scripts\Global\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Storage">
+    <Position X="18.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\Storage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IActiveItem">
+    <Position X="23.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAQAAAgAAACAA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\IActiveItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ItemType">
+    <Position X="23.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAAAgAAAA=</HashCode>
+      <FileName>Data\Scripts\Global\Inventory\ItemType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -2,5 +2,5 @@
 {
     Item,
     Armor, 
-    Weapon
+    ActiveItem
 }

@@ -11,7 +11,7 @@ public static class ItemTypeExtension
         {
             ItemType.Item => Global.SceneObjects.Player.Inventory.Items,
             ItemType.Armor => new List<Item>() { Global.SceneObjects.Player.Inventory.Armor },
-            ItemType.Weapon => Global.SceneObjects.Player.Inventory.Weapons,
+            ItemType.ActiveItem => Global.SceneObjects.Player.Inventory.ActiveItems,
             _ => null,
         };
     }
@@ -22,7 +22,7 @@ public static class ItemTypeExtension
         {
             ItemType.Item => typeof(Item),
             ItemType.Armor => typeof(Armor),
-            ItemType.Weapon => typeof(Weapon),
+            ItemType.ActiveItem => typeof(ActiveItem),
             _ => null,
         };
     }

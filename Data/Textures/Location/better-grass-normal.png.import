@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dbx3ekjuj2y8"
+path="res://.godot/imported/better-grass-normal.png-4ac4c807ea7c797a31c8f9f7b6f348b6.image"
+
+[deps]
+
+source_file="res://Data/Textures/Location/better-grass-normal.png"
+dest_files=["res://.godot/imported/better-grass-normal.png-4ac4c807ea7c797a31c8f9f7b6f348b6.image"]
+
+[params]
+

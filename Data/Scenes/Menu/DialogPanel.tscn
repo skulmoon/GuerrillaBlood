@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvoii0d5gpvg1"]
+
+[ext_resource type="Texture2D" uid="uid://dppgx3cc743c7" path="res://Data/Textures/Menu/Dialogue.png" id="1_fiqy2"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogPanel.cs" id="2_58nxw"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogText.cs" id="4_k7bds"]
+
+[node name="DialogPanel" type="NinePatchRect"]
+anchors_preset = -1
+anchor_top = 0.596
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.208008
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_fiqy2")
+patch_margin_left = 126
+patch_margin_top = 116
+patch_margin_right = 128
+patch_margin_bottom = 126
+script = ExtResource("2_58nxw")
+
+[node name="DialogText" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.115
+anchor_right = 0.892
+anchor_bottom = 0.885
+offset_left = 0.0480003
+offset_top = -0.130001
+offset_right = -44.584
+offset_bottom = 0.130005
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00121, 1)
+theme_override_font_sizes/normal_font_size = 48
+autowrap_mode = 2
+script = ExtResource("4_k7bds")
+
+[node name="Options" type="Control" parent="DialogText"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Option1" type="Panel" parent="DialogText/Options"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1052.0
+offset_bottom = 34.0
+
+[node name="Option2" type="Panel" parent="DialogText/Options"]
+visible = false
+layout_mode = 0
+offset_top = 38.0
+offset_right = 1052.0
+offset_bottom = 70.0
+
+[node name="Option3" type="Panel" parent="DialogText/Options"]
+visible = false
+layout_mode = 0
+offset_top = 74.0
+offset_right = 1052.0
+offset_bottom = 106.0
+
+[node name="Option4" type="Panel" parent="DialogText/Options"]
+visible = false
+layout_mode = 0
+offset_top = 110.0
+offset_right = 1052.0
+offset_bottom = 142.0
+
+[node name="Option5" type="Panel" parent="DialogText/Options"]
+visible = false
+layout_mode = 0
+offset_top = 146.0
+offset_right = 1052.0
+offset_bottom = 178.0
+
+[node name="OptionText1" type="Label" parent="DialogText/Options"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1052.0
+offset_bottom = 34.0
+vertical_alignment = 1
+
+[node name="OptionText2" type="Label" parent="DialogText/Options"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 1052.0
+offset_bottom = 70.0
+vertical_alignment = 1
+
+[node name="OptionText3" type="Label" parent="DialogText/Options"]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 1052.0
+offset_bottom = 106.0
+vertical_alignment = 1
+
+[node name="OptionText4" type="Label" parent="DialogText/Options"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 1052.0
+offset_bottom = 142.0
+vertical_alignment = 1
+
+[node name="OptionText5" type="Label" parent="DialogText/Options"]
+layout_mode = 0
+offset_top = 146.0
+offset_right = 1052.0
+offset_bottom = 178.0
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -17.41

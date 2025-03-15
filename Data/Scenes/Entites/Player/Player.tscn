@@ -1,25 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhgr62sao2gjo"]
+[gd_scene load_steps=9 format=3 uid="uid://dhgr62sao2gjo"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Entites/Player/Player.cs" id="1_50o4n"]
 [ext_resource type="Script" path="res://Data/Scripts/Entites/Player/PlayerInteractionArea.cs" id="2_5mofv"]
-[ext_resource type="Texture2D" uid="uid://bk2vnk8xar0b1" path="res://Data/Textures/Entites/Снимок экрана 2025-01-17 150334.png" id="3_3chri"]
 [ext_resource type="Script" path="res://Data/Scripts/Entites/Player/PlayerCamera.cs" id="3_ybh1g"]
+[ext_resource type="Texture2D" uid="uid://x8n0gx8dssgo" path="res://Data/Textures/Entities/Player/hat.png" id="4_gjx51"]
+[ext_resource type="Texture2D" uid="uid://cvgyfwxhcevhx" path="res://Data/Textures/Entities/Player/body1.png" id="5_brtbg"]
+[ext_resource type="Texture2D" uid="uid://bv22o8agimio7" path="res://Data/Textures/DifusinLight.png" id="6_kq1n2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
 radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ir66"]
-size = Vector2(12, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_crk6a"]
-radius = 14.0
-
-[node name="Player" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 4
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Sprite")]
+collision_layer = 516
+collision_mask = 516
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_50o4n")
+Sprite = NodePath("Body")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qfa5h")
@@ -34,13 +33,6 @@ script = ExtResource("2_5mofv")
 [node name="CollisionArea" type="CollisionShape2D" parent="PlayerInteractionArea"]
 shape = SubResource("RectangleShape2D_4ir66")
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_crk6a")
-
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -48,9 +40,19 @@ shape = SubResource("CircleShape2D_crk6a")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_ybh1g")
 
-[node name="СнимокЭкрана2025-01-17150334" type="Sprite2D" parent="."]
-scale = Vector2(0.120482, 0.120482)
-texture = ExtResource("3_3chri")
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("4_gjx51")
+
+[node name="Hat" type="Sprite2D" parent="Body"]
+texture = ExtResource("5_brtbg")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.40903, 1.40903)
+color = Color(1, 1, 1, 0.0941176)
+energy = 0.61
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.792157)
+texture = ExtResource("6_kq1n2")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

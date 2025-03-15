@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +9,8 @@ public partial class GameCreator : Control
     private VBoxContainer _container;
     private TextureButton _buttonNew;
     private TextureButton _buttonExit;
+
+    [Export] public Label Label { get; set; }
 
     public override void _Ready()
     {
@@ -21,14 +23,19 @@ public partial class GameCreator : Control
 
     public void NewButtonPressed()
     {
+        _textEdit.Text = _textEdit.Text.Trim();
         if (Global.Settings.Saves.Find(x => x.Name == _textEdit.Text) != null)
         {
-            //I will add logic later
-            //more later...
+            Label.Text = "Сохранение с данным именем уже существует.";
+        }
+        else if (_textEdit.Text == string.Empty)
+        {
+            Label.Text = "Поле не должно быть пустым или состоять из пробелов.";
         }
         else
         {
             Global.JSON.NewGame(_textEdit.Text, Global.Settings.Saves.Count + 1);
+            Global.Settings.IsNewButtonPressed = true;
             GetTree().ChangeSceneToFile($"res://Data/Scenes/Locations/{Global.Settings.GameSettings.CurrentLocation}.tscn");
         }
     }

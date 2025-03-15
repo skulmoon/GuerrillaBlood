@@ -5,28 +5,25 @@ using System.Linq;
 
 public partial class PlayerInventory : Node
 {
-    public List<Item> Items { get; set; } = new List<Item>(new Item[33]);
-    public int ItemsCount { get; set; } = 16;
+    public List<Item> Items { get; set; } = new List<Item>(new Item[12]);
+    public List<Item> ActiveItems { get; set; } = new List<Item>(new Item[3]);
     public Item Armor { get; set; }
-    public int ArmorsCount { get; set; } = 8;
-    public List<Item> Weapons { get; set; } = new List<Item>(new Item[21]);
-    public int ShardsCount { get; set; } = 8;
     public int Scruples { get; set; } = 1000;
+
     public event Action ArmorChanged = () => { };
 
     public PlayerInventory()
     {
-
+        Items[0] = (Item)GD.Load<Item>("res://Data/Items/ActiveItems/Parabellum.tres").Duplicate();
     }
 
     public bool TakeItem(Item item)
 	{
-        GD.Print(1);
         InventoryItems inventoryItems = Global.SceneObjects.InventoryMenu.GetNode<InventoryItems>("Items");
         int? freeNumber = null;
-        for (int i = 0; i < ItemsCount; i++)
+        for (int i = 0; i < Items.Count; i++)
         {
-            if (Items[i].ID == item.ID) 
+            if (Items[i]?.ID == item.ID) 
             {
                 item.Count = Items[i].Staked(item.Count);
                 if (item.Count == 0)

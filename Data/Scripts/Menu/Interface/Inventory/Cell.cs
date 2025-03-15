@@ -27,7 +27,7 @@ public partial class Cell : Button
             if (value != null)
             {
                 _sprite.Visible = true;
-                _sprite.Texture = ResourceLoader.Load<Texture2D>($"res://Data/Textures/Items/{CellType}s/{value.Name}.png");
+                _sprite.Texture = ResourceLoader.Load<Texture2D>($"res://Data/Textures/Items/{value.GetType()}s/{value.Name}.png");
                 _label.Text = value.Count != 1 ? value.Count.ToString() : string.Empty;
             }
             else
@@ -71,19 +71,17 @@ public partial class Cell : Button
         _label.GrowVertical = GrowDirection.Begin;
         AddChild(_label);
         AddChild(control);
+        Item = CellType.GetList()[ItemNumber];
         ItemNumber = itemNumber;
         UpdateItem();
-        if (CellType == ItemType.Weapon && itemNumber < 20 && itemNumber > 15)
+        if (CellType == ItemType.ActiveItem && itemNumber < 20 && itemNumber > 15)
         {
-            if (itemNumber == 16)
-                ActiveWeaponCells[0] = this;
-            else
-                for (int i = 0; i < 3;  i++)
-                    if (ActiveWeaponCells[i + 1] == null)
-                    {
-                        ActiveWeaponCells[i + 1] = this;
-                        break;
-                    }
+            for (int i = 0; i < 3;  i++)
+                if (ActiveWeaponCells[i] == null) 
+                {
+                    ActiveWeaponCells[i] = this;
+                    break;
+                }
         }
     }
 

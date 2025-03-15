@@ -13,7 +13,7 @@ public class Directory
         System.IO.Directory.CreateDirectory(_directory);
     }
 
-	public void CreateSave(string saveName, int saveNumber)
+    public void CreateSave(string saveName, int saveNumber)
 	{
 		string path = Path.Combine(_directory, saveName);
 
@@ -34,14 +34,10 @@ public class Directory
         PlayerSettings playerSettings = new PlayerSettings()
         {
             Items = new List<Item>(new Item[33]),
-            Weapons = new List<Item>(new Item[21]),
+            ActiveItems = new List<Item>(new Item[21]),
             Armor = null,
-            Scruples = 0,
-            //CurrentTargetPosition = new Vector2(16, 16),
-            //CurrentPosition = new Vector2(16, 16),
+            Health = 0,
         };
-        //for (int i = 0; i < 24; i++)
-            //playerSettings.Items[i] = Global.ItemFabric.CreateItem(0, 12);
         Global.Settings.PlayerSettings = playerSettings;
         Global.Settings.CurrentSave = saveName;
         Global.Settings.GameSettings.SaveNumber = saveNumber;

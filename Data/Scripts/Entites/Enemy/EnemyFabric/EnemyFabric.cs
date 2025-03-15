@@ -1,9 +1,8 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public abstract partial class EnemyFabric : Node
 {
-    [Export] public EnemyArea[] EnemyZones { get; set; }
-
-    public abstract void Create();
+    public abstract Enemy Create(Vector2[] positions);
 }

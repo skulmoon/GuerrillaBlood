@@ -1,5 +1,6 @@
 using Godot;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
@@ -9,8 +10,9 @@ public class JSON
     private string _pathPams = "res://Data/PAMS/";
     private string _pathChoices = "user://Saves/";
     private Directory Directory = new Directory();
+    private JsonSerializerSettings _settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
 
-    public JSON()
+public JSON()
     {
         Global.Settings.Saves = GetSaves();
         Global.Settings.Saves.Sort();
@@ -52,12 +54,13 @@ public class JSON
     {
         FileAccess gameFile = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/GameSettings.json", FileAccess.ModeFlags.Write);
         FileAccess playerFile = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/PlayerSettings.json", FileAccess.ModeFlags.Write);
-        Global.Settings.PlayerSettings.Position = Global.SceneObjects.Player?.Position ?? new Vector2(16, 16);
+        Global.Settings.PlayerSettings.Position = Global.SceneObjects.Player?.Position ?? new Vector2(-3100, 30);
+        Global.Settings.PlayerSettings.Health = Global.SceneObjects?.Player?.Health ?? 300;
         Global.Settings.PlayerSettings.Items = Global.SceneObjects.Player?.Inventory?.Items ?? Global.Settings.PlayerSettings.Items;
         Global.Settings.PlayerSettings.Armor = Global.SceneObjects.Player?.Inventory?.Armor ?? Global.Settings.PlayerSettings.Armor;
-        Global.Settings.PlayerSettings.Weapons = Global.SceneObjects.Player?.Inventory?.Weapons ?? Global.Settings.PlayerSettings.Weapons;
+        Global.Settings.PlayerSettings.ActiveItems = Global.SceneObjects.Player?.Inventory?.ActiveItems ?? Global.Settings.PlayerSettings.ActiveItems;
         string gameJson = JsonConvert.SerializeObject(Global.Settings.GameSettings, Formatting.Indented);
-        string playerJson = JsonConvert.SerializeObject(Global.Settings.PlayerSettings, Formatting.Indented);
+        string playerJson = JsonConvert.SerializeObject(Global.Settings.PlayerSettings, Formatting.Indented, _settings);
         gameFile.StoreString(gameJson);
         playerFile.StoreString(playerJson);
         gameFile.Close();
@@ -73,14 +76,16 @@ public class JSON
         string playerJson = playerFile.GetAsText();
         gameFile.Close();
         playerFile.Close();
+        JObject JPlayer = JObject.Parse(playerJson);
         Global.Settings.GameSettings = JsonConvert.DeserializeObject<GameSettings>(gameJson);
-        Global.Settings.PlayerSettings = JsonConvert.DeserializeObject<PlayerSettings>(playerJson);
+        Global.Settings.PlayerSettings = JsonConvert.DeserializeObject<PlayerSettings>(playerJson, _settings);
         Global.CutSceneData.LoadCutSceneData();
     }
 
     public void NewGame(string saveName, int saveNumber)
     {
         Directory.CreateSave(saveName, saveNumber);
+        Global.SceneObjects.Player = null;
         SaveGame();
         Global.CutSceneData.LoadCutSceneData();
     }

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActiveItem" load_steps=2 format=3 uid="uid://4ktrunmydg4u"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Global/Inventory/ActiveItem.cs" id="1_q4osj"]
+
+[resource]
+script = ExtResource("1_q4osj")
+ObjectType = "Parabellum"
+ID = 1
+MaxCount = 1
+Name = "Parabellum"
+Description = "Немецкий самозарядный пистолет, разработанный в 1898 году австрийцем Георгом Люгером на основе конструкции пистолета Борхардта. Использовал патроны, специально сконструированные для него: сначала — калибром 7,65 мм, после 1902 года — и 9 мм. "

@@ -7,6 +7,14 @@ public partial class CutSceneData
     private List<NPCPAMS> _npsPamses = new List<NPCPAMS>();
     private Dialogue _dialogue = new Dialogue();
 
+    public Global Global
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void LoadCutSceneData()
     {
         _npsPamses = Global.JSON.GetNpcpams();

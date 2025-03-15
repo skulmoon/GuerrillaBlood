@@ -24,12 +24,10 @@ public partial class TakeCellState : Node, ICellState
         cell.TopLevel = false;
         cell.GlobalPosition = buffer;
         cell.Disabled = true;
-        if (Cell.EnteredMouseCell == null || cell.CellType != Cell.EnteredMouseCell.CellType)
+        if (Cell.EnteredMouseCell == null)
             cell.State = new TeleportationCellState(cell);
         else
         {
-            if (cell.CellType == ItemType.Weapon && (cell.ItemNumber < 20 && cell.ItemNumber > 15) || (Cell.EnteredMouseCell.ItemNumber < 20 && Cell.EnteredMouseCell.ItemNumber > 15))
-                StateCellMethods.ReleasedActiveShard(cell);
             if ((Cell.EnteredMouseCell?.Item?.ID) == (cell?.Item?.ID) && Cell.EnteredMouseCell?.Item != null && cell?.Item != null && cell.CellType == ItemType.Item)
             {
                 cell.Item.Count = Cell.EnteredMouseCell.Item.Staked(cell.Item.Count);
@@ -47,7 +45,7 @@ public partial class TakeCellState : Node, ICellState
                 Global.SceneObjects.Player.Inventory.MovingItem(cell.CellType, Cell.EnteredMouseCell.CellType, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
                 cell.UpdateItem();
                 Cell.EnteredMouseCell.UpdateItem();
-                (cell.Position, Cell.EnteredMouseCell.Position) = (Cell.EnteredMouseCell.Position, cell.Position);
+                (cell.GlobalPosition, Cell.EnteredMouseCell.GlobalPosition) = (Cell.EnteredMouseCell.GlobalPosition, cell.GlobalPosition);
                 Cell.EnteredMouseCell.Disabled = true;
                 cell.State = new TeleportationCellState(cell);
                 Cell.EnteredMouseCell.State = new MovingCellState(Cell.EnteredMouseCell);

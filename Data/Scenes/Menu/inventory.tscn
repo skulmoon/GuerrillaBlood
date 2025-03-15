@@ -25,6 +25,7 @@ anchor_right = 0.48
 anchor_bottom = 0.08
 script = ExtResource("2_ymufq")
 SellInLine = 3
+Type = 2
 
 [node name="Armors" type="Control" parent="."]
 layout_mode = 1
@@ -32,3 +33,5 @@ anchor_left = 0.51
 anchor_right = 0.56
 anchor_bottom = 0.08
 script = ExtResource("2_ymufq")
+SellInLine = 1
+Type = 1

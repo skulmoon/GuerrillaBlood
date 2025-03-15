@@ -3,9 +3,9 @@ using System;
 
 public partial class PlayerCamera : Camera2D
 {
-    public Vector2 CursorPosition { get => GetGlobalMousePosition(); }
+    public float Aim { get; set; } = 0;
     public override void _Process(double delta)
 	{
-        GlobalPosition = GlobalPosition.Lerp(Global.SceneObjects.Player.GlobalPosition.Lerp(CursorPosition, 0.1f), 10 * (float)delta);
+        GlobalPosition = GlobalPosition.Lerp(Global.SceneObjects.Player.GlobalPosition.Lerp(GetGlobalMousePosition(), 0.1f + Aim), 10 * (float)delta);
     }
 }

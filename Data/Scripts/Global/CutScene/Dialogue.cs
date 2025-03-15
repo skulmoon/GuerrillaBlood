@@ -8,6 +8,14 @@ public partial class Dialogue : Node
 	private List<NPCDialogue> _dialogues;
     private List<PlayerChoice> _playerChoices;
 
+    public CutSceneData CutSceneData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void LoadDialogues()
 	{
         _dialogues = Global.JSON.GetDialogues() ?? new List<NPCDialogue>();

@@ -11,7 +11,6 @@ public partial class InventoryMenu : Control
         if (Input.IsActionJustPressed("open_inventory"))
         {
             Visible = !Visible;
-            Cell.ActiveWeaponCells.ForEach(cell => cell.Visible = true);
         }
     }
 
